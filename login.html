@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-auth.js"></script>
+    <title>Holla</title>
+  </head>
+  <body class="align">
+    <div class="grid">
+      <h1>Sign up Form</h1>
+      <div id="formContainer">
+        <div id="header"></div>
+        <input type="email" placeholder="email" id="email" />
+        <input type="password" placeholder="password" id="password" />
+        <button onclick="signUp()" id="signup">Sign Up</button>
+        <button onclick="signIn()" id="signin">Sign In</button>
+        <button onclick="signOut()" id="signout">Sign out</button>
+      </div>
+    </div>
+    <script
+      type="text/javascript"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+    ></script>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>
