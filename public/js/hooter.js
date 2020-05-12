@@ -25,7 +25,7 @@ $(document).ready(function() {
     }
     // Calling the upserthooter function and passing in the value of the name input
     upserthooter({
-      name: nameInput.val().trim(),
+      name: nameInput.val().trim()
     });
   }
 
@@ -102,7 +102,7 @@ $(document).ready(function() {
     var id = listItemData.id;
     $.ajax({
       method: "DELETE",
-      url: "/api/hooters/" + id,
+      url: "/api/hooters/" + id
     }).then(gethooters);
   }
 });
