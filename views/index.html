@@ -9,12 +9,13 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <!-- Bulma Version 0.8.x-->
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/instaAlbum.css">
+    <link rel="stylesheet" type="text/css" href="../public/styles/styles.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <title>Hoot&Holla</title>
 </head>
 
 <body>
+    <!-- start to navbar -->
     <nav class="navbar">
         <div class="container">
             <div class="navbar-brand">
@@ -38,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div id="navbarMenu" class="navbar-menu">
                 <div class="navbar-end">
                     <div class="navbar-item has-dropdown is-hoverable">
@@ -47,10 +48,10 @@
                         </a>
                         <div class="navbar-dropdown">
                             <a class="navbar-item">
-                                Dashboard
+                                Profile
                             </a>
                             <a class="navbar-item">
-                                Profile
+                                Inbox
                             </a>
                             <a class="navbar-item">
                                 Settings
@@ -65,10 +66,27 @@
             </div>
         </div>
     </nav>
-
+    <!-- end of navbar -->
 
     <div class="columns body-columns">
-        <div class="column is-half is-offset-one-quarter">
+        <div class="column">
+            <div class="card">
+                <div class="header">
+                    <div class="field">
+                        <label class="label">Hoots</label>
+                        <div class="control">
+                            <textarea class="textarea is-medium"></textarea>
+                        </div>
+                    </div>
+                    <div class="control">
+                        <button type="submit"
+                            class="button is-link is-quarterwidth has-text-weight-medium is-medium">Hoot
+                            Away</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column is-half ">
             <div class="card">
                 <div class="header">
                     <div class="media">
@@ -93,7 +111,7 @@
                         <div class="level-left">
                             <div class="level-item has-text-centered">
                                 <a href="">
-                                    <i class="material-icons">favorite_border</i>
+                                    <i class="fas fa-feather-alt"></i>
                                 </a>
                             </div>
                             <div class="level-item has-text-centered">
@@ -161,7 +179,7 @@
                         <div class="level-left">
                             <div class="level-item has-text-centered">
                                 <a href="">
-                                    <i class="material-icons">favorite_border</i>
+                                    <i class="fas fa-feather-alt"></i>
                                 </a>
                             </div>
                             <div class="level-item has-text-centered">
@@ -204,8 +222,6 @@
                 </div>
             </div>
 
-
-
             <div class="card">
                 <div class="header">
                     <div class="media">
@@ -230,7 +246,7 @@
                         <div class="level-left">
                             <div class="level-item has-text-centered">
                                 <a href="">
-                                    <i class="material-icons">favorite_border</i>
+                                    <i class="fas fa-feather-alt"></i>
                                 </a>
                             </div>
                             <div class="level-item has-text-centered">
@@ -273,8 +289,26 @@
                 </div>
             </div>
         </div>
-    </div>
-</body>
 
+        <!-- ads space -->
+        <div class="column">
+            <div class="card">
+                <div class="header">
+                    <div class="tile is-parent">
+                        <article class="tile is-child notification is-success">
+                            <div class="content">
+                                <p class="title">Ads space</p>
+                                <p class="subtitle">With even more content</p>
+                                <div class="content">
+                                    <!-- Content -->
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
 </html>
