@@ -5,54 +5,276 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <!-- Bulma Version 0.8.x-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/instaAlbum.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <title>Hoot&Holla</title>
 </head>
-<header>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
-                <img src="#" width="112" height="28">
-            </a>
 
-            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item">
-                    Home
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="../">
+                    <img src="https://www.logoground.com/uploads6/dv6y2019124112019-04-294948577Owl.jpg" alt="Logo">
                 </a>
-
-                <a class="navbar-item">
-                    Profile
-                </a>
+                <span class="navbar-burger burger" data-target="navbarMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
             </div>
-        </div>
 
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="buttons">
-                    <a class="button is-primary" href="signup.html">
-                        <strong>Sign up</strong>
-                    </a>
-                    <a class="button is-light" href="login.html">
-                        Log in
-                    </a>
+            <div class="navbar-menu">
+                <div class=" navbar-item">
+                    <div class="control has-icons-left">
+                        <input class="input is-rounded" type="email" placeholder="Search">
+                        <span class="icon is-left">
+                            <i class="fa fa-search"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="navbarMenu" class="navbar-menu">
+                <div class="navbar-end">
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            Account
+                        </a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item">
+                                Dashboard
+                            </a>
+                            <a class="navbar-item">
+                                Profile
+                            </a>
+                            <a class="navbar-item">
+                                Settings
+                            </a>
+                            <hr class="navbar-divider">
+                            <div class="navbar-item">
+                                Logout
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        </div>
     </nav>
-</header>
 
-<body>
 
+    <div class="columns body-columns">
+        <div class="column is-half is-offset-one-quarter">
+            <div class="card">
+                <div class="header">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-48x48">
+                                <img src="https://source.unsplash.com/random/96x96" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4">John Smith</p>
+                            <p class="subtitle is-6">@johnsmith</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="https://source.unsplash.com/random/1280x960" alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="level is-mobile">
+                        <div class="level-left">
+                            <div class="level-item has-text-centered">
+                                <a href="">
+                                    <i class="material-icons">favorite_border</i>
+                                </a>
+                            </div>
+                            <div class="level-item has-text-centered">
+                                <div>
+                                    <a href="">
+                                        <i class="material-icons">chat_bubble_outline</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        <p>
+                            <strong>32 Likes</strong>
+                        </p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                        <a>@bulmaio</a>.
+                        <a href="#">#css</a>
+                        <a href="#">#responsive</a>
+                        <br>
+                        <time datetime="2018-1-1">11:09 PM - 1 Jan 2018</time>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="columns is-mobile">
+                        <div class="column is-11">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-medium" type="text" placeholder="Add a comment . . .">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column has-text-centered">
+                            <button class="button">
+                                <i class="material-icons">more_horiz</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="header">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-48x48">
+                                <img src="https://source.unsplash.com/random/96x96" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4">John Smith</p>
+                            <p class="subtitle is-6">@johnsmith</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="https://source.unsplash.com/random/1280x960" alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="level is-mobile">
+                        <div class="level-left">
+                            <div class="level-item has-text-centered">
+                                <a href="">
+                                    <i class="material-icons">favorite_border</i>
+                                </a>
+                            </div>
+                            <div class="level-item has-text-centered">
+                                <div>
+                                    <a href="">
+                                        <i class="material-icons">chat_bubble_outline</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        <p>
+                            <strong>32 Likes</strong>
+                        </p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                        <a>@bulmaio</a>.
+                        <a href="#">#css</a>
+                        <a href="#">#responsive</a>
+                        <br>
+                        <time datetime="2018-1-1">11:09 PM - 1 Jan 2018</time>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="columns is-mobile">
+                        <div class="column is-11">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-medium" type="text" placeholder="Add a comment . . .">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column has-text-centered">
+                            <button class="button">
+                                <i class="material-icons">more_horiz</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="card">
+                <div class="header">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-48x48">
+                                <img src="https://source.unsplash.com/random/96x96" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4">John Smith</p>
+                            <p class="subtitle is-6">@johnsmith</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="https://source.unsplash.com/random/1280x960" alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="level is-mobile">
+                        <div class="level-left">
+                            <div class="level-item has-text-centered">
+                                <a href="">
+                                    <i class="material-icons">favorite_border</i>
+                                </a>
+                            </div>
+                            <div class="level-item has-text-centered">
+                                <div>
+                                    <a href="">
+                                        <i class="material-icons">chat_bubble_outline</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        <p>
+                            <strong>32 Likes</strong>
+                        </p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                        <a>@bulmaio</a>.
+                        <a href="#">#css</a>
+                        <a href="#">#responsive</a>
+                        <br>
+                        <time datetime="2018-1-1">12:02 PM - 1 May 2018</time>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="columns is-mobile">
+                        <div class="column is-11">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-medium" type="text" placeholder="Add a comment . . .">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column has-text-centered">
+                            <button class="button">
+                                <i class="material-icons">more_horiz</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 
 </html>
