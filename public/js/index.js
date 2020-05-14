@@ -4,8 +4,12 @@ $(document).ready(function() {
   var signin = function(credentials) {
     //Sign in user with a account
     event.preventDefault();
-    var userinputname = $("#userName").val().trim();
-    var userpassword = $("#password").val().trim();
+    var userinputname = $("#userName")
+      .val()
+      .trim();
+    var userpassword = $("#password")
+      .val()
+      .trim();
     if (userinputname === username) {
       userinputname = "/name/" + userinputname;
     }
