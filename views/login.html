@@ -12,46 +12,58 @@
     <title>Holla</title>
 </head>
 <header>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
-                <img src="#" width="112" height="28">
-            </a>
-
-            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item" href="index.html">
-                    Home
-                </a>
-
-                <a class="navbar-item" href="profile.html">
-                    Profile
-                </a>
-            </div>
-        </div>
-
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="buttons">
-                    <a class="button is-primary" href="signup.html">
-                        <strong>Sign up</strong>
+        <!-- start to navbar -->
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="../">
+                        <img src="https://www.logoground.com/uploads6/dv6y2019124112019-04-294948577Owl.jpg" alt="Logo">
                     </a>
-                    <a class="button is-light" href="login.html">
-                        Log in
-                    </a>
+                    <span class="navbar-burger burger" data-target="navbarMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </div>
+    
+                <div class="navbar-menu">
+                    <div class=" navbar-item">
+                        <div class="control has-icons-left">
+                            <input class="input is-rounded" type="email" placeholder="Search">
+                            <span class="icon is-left">
+                                <i class="fa fa-search"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+    
+                <div id="navbarMenu" class="navbar-menu">
+                    <div class="navbar-end">
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">
+                                Account
+                            </a>
+                            <div class="navbar-dropdown">
+                                <a class="navbar-item" href="../views/index.html">
+                                    Home
+                                </a>
+                                <a class="navbar-item" href="../views/profile.html">
+                                    Profile
+                                </a>
+                                <a class="navbar-item" href="../views/inbox.html">
+                                    Inbox
+                                </a>
+                                <hr class="navbar-divider">
+                                <a class="navbar-item" href="../views/login.html">
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        </div>
-    </nav>
+        </nav>
+        <!-- end of navbar -->
 </header>
 
 <body class="align">
