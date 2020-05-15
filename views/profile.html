@@ -6,13 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <title>Hoot&Holla</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Ruge+Boogie&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../public/styles/profile.css">
+    <title>Skip | Hoot & Holla</title>
 </head>
 <header>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
-                <img src="#" width="112" height="28">
+            <a class="navbar-item" href="index.html">
+                <img src="https://www.logoground.com/uploads6/dv6y2019124112019-04-294948577Owl.jpg" width="50"
+                    height="28">
             </a>
 
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
@@ -52,6 +57,240 @@
 </header>
 
 <body>
+    <section class="hero is-medium is-bold">
+        <div class="hero-body" style="padding-bottom: 80px;">
+            <div class="container has-text-centered">
+                <h1 class="title">
+
+                </h1>
+            </div>
+
+        </div>
+    </section>
+    <div class="column is-2 is-offset-5">
+        <figure class="avatar">
+            <a href="#">
+                <img href="#"
+                    src="https://media-exp1.licdn.com/dms/image/C4E03AQG3eC_rCrR2KQ/profile-displayphoto-shrink_200_200/0?e=1594857600&v=beta&t=ZeGjSvTOY8f1JBMNlDNoroyFF52vAxPvo3kejgCZnBM"
+                    style="z-index: -1;">
+            </a>
+        </figure>
+    </div>
+    <div class="column is-9 is-offset-1" id="edit-buttons">
+        <button class="button is-dark">Edit Profile</button>
+        <button class="button is-dark">Manage Posts</button>
+
+        <button class="button is-dark" id="setting">
+            <i class="fas fa-user-cog"></i>
+        </button>
+        <button class="button is-dark" id="cover">Change Profile Cover</button>
+        <a href="#" data-balloon="Add Profile Picture">
+            <img class="fas fa-camera-retro" id="profile-pic"></img>
+        </a>
+    </div>
+    <div class="columns" style="margin-bottom: 0px;">
+        <div class="column is-half is-offset-3">
+            <div class="container has-text-centered">
+                <h1 class="title">
+                    <!-- Welcome header using time / moment api to say good morning,afternoon,evening -->
+                    <p id="welcome">Welcome Back,</p>
+                    <a class="user-firstname">
+                        <!-- Users name -->
+                        Skip
+                    </a>
+                </h1>
+                <a href="#" id="bio">Add Bio</a>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="column is-4 is-offset-4">
+        <!-- <div class="box" id="biography"> -->
+        <p class="title is-5">Skip Khamvongsa</p>
+        <p class="subtitle">This column will take the user's biography and share it for viewers to read.</p>
+        <!-- </div> -->
+        <hr>
+    </div>
+    <div class="columns">
+        <div class="column is-8 is-offset-4" style="padding-bottom: 0px;">
+            <button class="button is-dark">Hoots</button>
+            <button class="button is-dark">Photos</button>
+            <button class="button is-dark">Archive</button>
+            <button class="button is-dark">Following</button>
+            <button class="button is-dark">Followers</button>
+            <div class="select" style="padding: 0px;">
+                <select id="drop-down">
+                    <option>Extra</option>
+                    <option>Events</option>
+                    <option>Books</option>
+                    <option>Music</option>
+                    <option>Groups</option>
+                    <option>Notes</option>
+                    <option>Questions</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="columns body-columns">
+        <div class="column is-half is-offset-one-quarter">
+            <div class="card">
+                <div class="header">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-48x48">
+                                <img src="https://media-exp1.licdn.com/dms/image/C4E03AQG3eC_rCrR2KQ/profile-displayphoto-shrink_200_200/0?e=1594857600&v=beta&t=ZeGjSvTOY8f1JBMNlDNoroyFF52vAxPvo3kejgCZnBM" alt="Placeholder image" id="img-left">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4">Skip Khamvongsa</p>
+                            <p class="subtitle is-6">@skippy_k</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="https://source.unsplash.com/random/1280x960" alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="level is-mobile">
+                        <div class="level-left">
+                            <div class="level-item has-text-centered" >
+                                <a href="#here">
+                                    <i class="fas fa-feather-alt" onClick={this.highlight} id="featherbutton"></i>
+                                </a>
+                            </div>
+                            <div class="level-item has-text-centered">
+                                <div>
+                                    <a href="">
+                                        <i class="material-icons">chat_bubble_outline</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        <p>
+                            <strong>32 Likes</strong>
+                        </p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                        <a>@bulmaio</a>.
+                        <a href="#">#css</a>
+                        <a href="#">#responsive</a>
+                        <br>
+                        <time datetime="2018-1-1">11:09 PM - 1 Jan 2018</time>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="columns is-mobile">
+                        <div class="column is-11">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-medium" type="text" placeholder="Add a comment . . .">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column has-text-centered">
+                            <button class="button">
+                                <i class="material-icons">more_horiz</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="columns body-columns">
+        <div class="column is-half is-offset-one-quarter">
+            <div class="card">
+                <div class="header">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-48x48">
+                                <img src="https://media-exp1.licdn.com/dms/image/C4E03AQG3eC_rCrR2KQ/profile-displayphoto-shrink_200_200/0?e=1594857600&v=beta&t=ZeGjSvTOY8f1JBMNlDNoroyFF52vAxPvo3kejgCZnBM" alt="Placeholder image" id="img-left">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4">Skip Khamvongsa</p>
+                            <p class="subtitle is-6">@skippy_k</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="https://source.unsplash.com/random/1280x960" alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="level is-mobile">
+                        <div class="level-left">
+                            <div class="level-item has-text-centered" >
+                                <a href="#here" id="featherbutton">
+                                    <i class="fas fa-feather-alt" onClick={this.highlight} id="featherbutton"></i>
+                                </a>
+                            </div>
+                            <div class="level-item has-text-centered">
+                                <div>
+                                    <a href="">
+                                        <i class="material-icons">chat_bubble_outline</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        <p>
+                            <strong>32 Likes</strong>
+                        </p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+                        <a>@bulmaio</a>.
+                        <a href="#">#css</a>
+                        <a href="#">#responsive</a>
+                        <br>
+                        <time datetime="2018-1-1">11:09 PM - 1 Jan 2018</time>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="columns is-mobile">
+                        <div class="column is-11">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-medium" type="text" placeholder="Add a comment . . .">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column has-text-centered">
+                            <button class="button">
+                                <i class="material-icons">more_horiz</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var active = false;
+        var header = document.getElementById("featherbutton");
+        $("#featherbutton").on("click", function() {
+            alert("You've clicked");
+            
+        })
+        // for (var i = 0; i < header.length; i++) {
+        //     header[i].addEventListener("click", function() {
+        //         alert("You've clicked");
+        //         var current = document.getElementsByClassName("active");
+        //         if (current.length > 0) {
+        //             current[0].Id = current[0].Id.replace(" active", "");
+        //         }
+                
+        //         this.Id += " active";
+        //     })
+        // }
+    </script>
 
 </body>
 
