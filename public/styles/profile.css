@@ -1,0 +1,79 @@
+body {
+    background-color: rgba(160, 160, 160, 0.281);
+}
+.hero-body {
+    background-image: url("https://images.firstcovers.com/covers/o/owl-2077.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 120px;
+    margin-right: 120px;
+    margin-bottom: 40px;
+    
+    padding-bottom: 10px;
+    border-radius: 6px;
+}
+#welcome{
+    color: #363636;
+    font-family: 'Ruge Boogie', cursive;
+    font-size: 45px;
+
+}
+hr {
+    background-color: #706f6f;
+}
+.user-firstname {
+    color: #363636;
+    font-family: 'Amatic SC', cursive;
+}
+.avatar img {
+    padding: 5px;
+    background: #fff;
+    border-radius: 50%;
+    margin-left: 60px;
+    margin-top: -100px;
+}
+#setting {
+    float: right;
+    margin-left: 5px;
+}
+#cover {
+    float: right;
+}
+#profile-pic {
+    float: right;
+    margin-right: 230px;
+    font-size: 22px;
+    margin-top: -115px;
+    z-index: 3;
+    color: #363636;
+}
+#edit-buttons {
+    margin-top: -70px;
+}
+#bio {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 17px;
+}
+#drop-down {
+    background-color: #363636;
+    border-color: transparent;
+    color: #fff;
+}
+.card {
+    border-radius: 10px;
+    padding-top: 4px;
+    padding-bottom: 8px;
+}
+#img-left {
+    border-radius: 6px;
+    
+    padding-left: 2px;
+}
+#featherbutton {
+    font-size: 20px;
+    color: #363636;
+}
+/* #featherbutton, .active{
+    color: red;
+} */
