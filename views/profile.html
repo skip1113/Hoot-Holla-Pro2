@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Ruge+Boogie&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -20,40 +21,59 @@
                     height="28">
             </a>
 
-            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-
-        <div id="navbarBasicExample" class="navbar-menu" href="index.html">
-            <div class="navbar-start">
-                <a class="navbar-item">
-                    Home
+<body>
+    <!-- start to navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="../">
+                    <img src="https://www.logoground.com/uploads6/dv6y2019124112019-04-294948577Owl.jpg" alt="Logo">
                 </a>
-
-                <a class="navbar-item" href="profile.html">
-                    Profile
-                </a>
+                <span class="navbar-burger burger" data-target="navbarMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
             </div>
-        </div>
 
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="buttons">
-                    <a class="button is-primary" href="signup.html">
-                        <strong>Sign up</strong>
-                    </a>
-                    <a class="button is-light" href="login.html">
-                        Log in
-                    </a>
+            <div class="navbar-menu">
+                <div class=" navbar-item">
+                    <div class="control has-icons-left">
+                        <input class="input is-rounded" type="email" placeholder="Search">
+                        <span class="icon is-left">
+                            <i class="fa fa-search"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="navbarMenu" class="navbar-menu">
+                <div class="navbar-end">
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            Account
+                        </a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="../views/index.html">
+                                Home
+                            </a>
+                            <a class="navbar-item" href="../views/profile.html">
+                                Profile
+                            </a>
+                            <a class="navbar-item" href="../views/inbox.html">
+                                Inbox
+                            </a>
+                            <hr class="navbar-divider">
+                            <a class="navbar-item" href="../views/login.html">
+                                Logout
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        </div>
     </nav>
+
 </header>
 
 <body>
@@ -232,8 +252,7 @@
                                 </a>
                             </div>
                             <div class="level-item has-text-centered">
-                                <div>
-                                    <a href="">
+                                <div>                                    <a href="">
                                         <i class="material-icons">chat_bubble_outline</i>
                                     </a>
                                 </div>
@@ -291,7 +310,6 @@
         //     })
         // }
     </script>
-
 </body>
 
 </html>
