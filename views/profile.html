@@ -13,15 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../public/styles/profile.css">
     <title>Skip | Hoot & Holla</title>
 </head>
-<header>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="index.html">
-                <img src="https://www.logoground.com/uploads6/dv6y2019124112019-04-294948577Owl.jpg" width="50"
-                    height="28">
-            </a>
-
 <body>
+    
     <!-- start to navbar -->
     <nav class="navbar">
         <div class="container">
@@ -73,11 +66,10 @@
             </div>
         </div>
     </nav>
-
-</header>
+    <!-- end of navbar -->
 
 <body>
-    <section class="hero is-medium is-bold">
+    <section class="hero is-medium">
         <div class="hero-body" style="padding-bottom: 80px;">
             <div class="container has-text-centered">
                 <h1 class="title">
@@ -109,7 +101,24 @@
         </a>
     </div>
     <div class="columns" style="margin-bottom: 0px;">
-        <div class="column is-half is-offset-3">
+        <div class="column is-2 is-offset-1" id="hoot-post">
+            <div class="field">
+                <label class="label">Hoots</label>
+                <div class="control">
+                    <textarea class="textarea is-medium" placeholder="What's on the Journal today..." style="min-height: 5em;"></textarea>
+                </div>
+            </div>
+            <div class="control">
+                <button type="submit"
+                    class="button is-light is-quarterwidth has-text-weight-medium is-medium" id="hoot-button">Hoot
+                    Away<i class="fas fa-feather-alt"></i></button>
+                <i class="fas fa-ellipsis-v" id="paper-icon"></i>
+                <i class="fas fa-map-marked-alt" id="marker"></i>    
+                <i class="fas fa-images" id="paper-icon"></i>
+            </div>
+        </div>
+        
+        <div class="column is-half">
             <div class="container has-text-centered">
                 <h1 class="title">
                     <!-- Welcome header using time / moment api to say good morning,afternoon,evening -->
@@ -121,14 +130,13 @@
                 </h1>
                 <a href="#" id="bio">Add Bio</a>
             </div>
-
         </div>
-
+        
     </div>
-    <div class="column is-4 is-offset-4">
+    <div class="column is-4 is-offset-4" id="bio-message">
         <!-- <div class="box" id="biography"> -->
-        <p class="title is-5">Skip Khamvongsa</p>
-        <p class="subtitle">This column will take the user's biography and share it for viewers to read.</p>
+        <p class="title is-5" id="first-mes">Skip Khamvongsa</p>
+        <p class="subtitle" id="first-mes">This column will take the user's biography and share it for viewers to read.</p>
         <!-- </div> -->
         <hr>
     </div>
@@ -153,6 +161,33 @@
         </div>
     </div>
     <div class="columns body-columns">
+        <div class="column is-2 is-offset-9" id="advertise" style="margin-bottom: -20%;">
+            <div class="card">
+                <div class="header">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-48x48">
+                                <img src="https://media-exp1.licdn.com/dms/image/C510BAQFL8s974xVyCw/company-logo_200_200/0?e=2159024400&v=beta&t=mQgqb75wGAT0E4Q-Sk-d-9CzcOKQS55so5yUJAxFS7M" alt="Placeholder image" style="height: 47px; padding-left: 5px; border-radius:10px;">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4">Hubble Contacts</p>
+                            <p class="subtitle is-6">Sponsored</p>
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="https://i.pinimg.com/736x/0a/af/16/0aaf169a46aa638228ea5ac17777b502.jpg" alt="Placeholder image">
+                    </figure>
+                </div>
+                    <div class="content">
+                        <p class="subtitle is-6">Answer these 4 simple questions to get a box of Hubble Contacts for only $1</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="column is-half is-offset-one-quarter">
             <div class="card">
                 <div class="header">

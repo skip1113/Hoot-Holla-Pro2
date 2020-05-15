@@ -1,20 +1,41 @@
 body {
-    background-color: rgba(160, 160, 160, 0.281);
+    background-color: #232B2D;
 }
 .hero-body {
-    background-image: url("https://images.firstcovers.com/covers/o/owl-2077.jpg");
-    background-position: center;
+    background-image: url("https://scontent.fapa1-2.fna.fbcdn.net/v/t1.0-9/23316348_1878383608856511_6864326240278784119_n.jpg?_nc_cat=102&_nc_sid=e3f864&_nc_ohc=Dpd_b9eeQT0AX-EwJEo&_nc_ht=scontent.fapa1-2.fna&oh=44ede579101ed59a74223abfd03e215c&oe=5EE36332");
+    background-position: 50% 70%;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 120px;
-    margin-right: 120px;
+    margin-left: 150px;
+    margin-right: 150px;
     margin-bottom: 40px;
     
     padding-bottom: 10px;
     border-radius: 6px;
 }
+.navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    background-color: white;
+    justify-content: space-around;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+  }
+  .navbar-menu {
+    flex-grow: 0.5;
+    justify-content: center;
+  }
+  .navbar-menu .navbar-item {
+    flex-grow: 1;
+    justify-content: center;
+  }
+  .navbar-menu .navbar-item .control {
+    width: 50%;
+  }
 #welcome{
-    color: #363636;
+    color: #adadad;
     font-family: 'Ruge Boogie', cursive;
     font-size: 45px;
 
@@ -23,7 +44,7 @@ hr {
     background-color: #706f6f;
 }
 .user-firstname {
-    color: #363636;
+    color: #adadad;
     font-family: 'Amatic SC', cursive;
 }
 .avatar img {
@@ -46,7 +67,7 @@ hr {
     font-size: 22px;
     margin-top: -115px;
     z-index: 3;
-    color: #363636;
+    color: #adadad;
 }
 #edit-buttons {
     margin-top: -70px;
@@ -74,6 +95,38 @@ hr {
     font-size: 20px;
     color: #363636;
 }
-/* #featherbutton, .active{
-    color: red;
-} */
+#bio-message {
+    margin-top: -100px;
+    color: #adadad;
+}
+#hoot-post {
+    margin-top: 10px;
+    padding: 5px 10px 10px;
+    background-color: #363636;
+    border-radius: 10px;
+}
+
+.label {
+    color: white;
+    font-family: 'Amatic SC', cursive;   
+    font-size: 25px;
+}
+#paper-icon {
+    float: right;
+    font-size: 20px;
+    color: white;
+}
+#marker {
+    float: right;
+    font-size: 20px;
+    color: white;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+#first-mes {
+    color: #adadad;
+}
+#hoot-button {
+    background-color: #2f2f2f;
+    color: #fff;
+}
