@@ -1,6 +1,3 @@
-.list-group-item {
-  line-height: 2.5;
-}
 /* navbar */
 .navbar {
   position: fixed;
@@ -31,6 +28,7 @@ a.navbar-item img{
   max-height: 60px;
   width: 90px;
 }
+
 /* cards */
 .body-columns {
   margin-top: 10vh;
@@ -61,13 +59,21 @@ a.navbar-item img{
   padding: 2rem 1.5rem;
 }
 
+#blog{
+  overflow: scroll;
+  height: 900px;
+}
+#blog::-webkit-scrollbar{
+  display: none;
+}
+
 /* background animation */
 body {
-  background: #393939;
-  }
+  background: #232B2D;
+}
 
 #flow span {
-  background: #5e44f1;
+  background: #5e44f1fb;
   display: block;
   width: 200vw;
   height: 200vw;
@@ -76,16 +82,18 @@ body {
   left: -50vw;
   border-radius: 90vw;
   opacity: 0.6;
-  }
-  .flow-1 {
+}
+
+.flow-1 {
   background: #1b72fd;
   -webkit-animation: rotating 20s linear infinite;
   -moz-animation: rotating 20s linear infinite;
   -ms-animation: rotating 20s linear infinite;
   -o-animation: rotating 20s linear infinite;
   animation: rotating 20s linear infinite;
-  }
-  .flow-2 {
+}
+
+.flow-2 {
   background: #a803f5;
   position: absolute;
   -webkit-animation: rotating 15s linear infinite;
@@ -93,59 +101,93 @@ body {
   -ms-animation: rotating 15s linear infinite;
   -o-animation: rotating 15s linear infinite;
   animation: rotating 15s linear infinite;
-  }
-  .flow-3 {
-  background: #42eef4;
+}
+
+.flow-3 {
+  background: #03eef7;
   position: absolute;
   -webkit-animation: rotating 7s linear infinite;
   -moz-animation: rotating 7s linear infinite;
   -ms-animation: rotating 7s linear infinite;
   -o-animation: rotating 7s linear infinite;
   animation: rotating 7s linear infinite;
-  }
+}
 
-  @-webkit-keyframes rotating {
-    from {
-    -ms-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-    }
-    to {
-    -ms-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-    }
-    }
-    @keyframes rotating {
-    from {
-    -ms-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-    }
-    to {
-    -ms-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-    }
-    }
-    .rotating {
-    -webkit-animation: rotating 2s linear infinite;
-    -moz-animation: rotating 2s linear infinite;
-    -ms-animation: rotating 2s linear infinite;
-    -o-animation: rotating 2s linear infinite;
-    animation: rotating 2s linear infinite;
-    }
-
-    #navbarMenu {
-      background-color: #363636;
-      border-color: transparent;
-      color: #fff;
+@-webkit-keyframes rotating {
+  from {
+  -ms-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
   }
+  to {
+  -ms-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+  }
+  }
+  @keyframes rotating {
+  from {
+  -ms-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  }
+  to {
+  -ms-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+  }
+}
+
+.rotating {
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}
+
+#navbarMenu {
+  background-color: #363636;
+  border-color: transparent;
+  color: #fff;
+}
+
+/* blog */
+#hoot-button {
+  background-color: #2f2f2f;
+  color: #fff;
+}
+#hoot-post {
+  margin-top: 80px;
+  padding: 5px 10px 10px;
+  background-color: #363636;
+  border-radius: 10px;
+}
+.label {
+  color: white;
+  font-family: 'Amatic SC', cursive;   
+  font-size: 25px;
+}
+#paper-icon {
+  float: right;
+  font-size: 20px;
+  color: white;
+}
+#marker {
+  float: right;
+  font-size: 20px;
+  color: white;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+#first-mes {
+  color: #adadad;
+}

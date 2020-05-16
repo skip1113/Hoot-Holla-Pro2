@@ -1,9 +1,9 @@
-html,body {
+  html,body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     font-size: 14px;
     line-height: 1.5;
     height: 100%;
-    background-color: #fff;
+    background-color: #232B2D;
   }
   .nav.is-dark {
     background-color: #232B2D;
@@ -39,18 +39,20 @@ html,body {
   }
   .aside {
     display:block;
-    background-color: #F9F9F9;
-    border-right: 1px solid #DEDEDE;
+    background-color: #232B2D;
+    border-right: 1px solid #363636;
   }
   .messages {
     display:block;
-    background-color: #fff;
-    border-right: 1px solid #DEDEDE;
+    background-color: #232B2D;
+    border-right: 1px solid #363636;
     padding: 40px 20px;
+    overflow: auto;
+    height: 500px;
   }
   .message {
     display:block;
-    background-color: #fff;
+    background-color: #232B2D;
     padding: 40px 20px;
   }
   .aside .compose {
@@ -81,7 +83,7 @@ html,body {
     color: #6F7B7E;
   }
   .aside .main .item.active {
-    background-color: #F1F1F1;
+    background-color: #232B2D;
     margin: 0 -50px;
     padding-left: 50px;
   }
