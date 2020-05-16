@@ -1,3 +1,5 @@
+import { INSERT } from "sequelize/types/lib/query-types";
+
 $(document).ready(function() {
   /* global moment */
 
@@ -7,6 +9,25 @@ $(document).ready(function() {
   // Click events for the edit and delete buttons
   $(document).on("click", "button.delete", handlePostDelete);
   $(document).on("click", "button.edit", handlePostEdit);
+  $(document).on("submit", "#hoot-form", postHoot);
+
+  function postHoot(event) {
+    event.preventDefault();
+    if (
+      !hootInput
+        .val()
+        .trim()
+        .trim()
+    ) {
+      return;
+    }
+    insertHoot({
+      text: hootInput.val().trim()
+    });
+  }
+  function upsertHooter(hooterData) {
+    $.post("/api/hoot", hooterData).then(getHooters);
+  }
   // Variable to hold our posts
   var posts;
 
