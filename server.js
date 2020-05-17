@@ -68,7 +68,7 @@ app.get('/', checkAuthenticated, (req, res) => {
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
   console.log('login get route');
-  res.sendFile(path.join(__dirname, './views/login.html'));
+  res.sendFile(path.join(__dirname, './public/login.html'));
 });
 
 app.post(
@@ -82,7 +82,7 @@ app.post(
 );
 
 app.get('/register', checkNotAuthenticated, (req, res) => {
-  res.sendFile(path.join(__dirname, './views/register.html'));
+  res.sendFile(path.join(__dirname, './public/register.html'));
 });
 
 app.post('/register', checkNotAuthenticated, async (req, res) => {
