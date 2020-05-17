@@ -48,39 +48,57 @@
               <figure class="avatar">
                 <img src="/img/logo2.png" />
               </figure>
-              <form action="/login" method="POST">
+              <form action="/register" method="POST">
                 <div class="field">
                   <div class="control">
-                    <input
-                      class="input is-large"
-                      placeholder="Your Email"
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                    />
+                    <div>
+                      <input
+                        class="input is-large"
+                        placeholder="Your Name"
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                      />
+                    </div>
                   </div>
                 </div>
                 <div class="field">
                   <div class="control">
-                    <input
-                      class="input is-large"
-                      placeholder="Your Password"
-                      type="password"
-                      id="password"
-                      name="password"
-                      required
-                    />
+                    <div>
+                      <input
+                        class="input is-large"
+                        placeholder="Your Email"
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <div>
+                      <input
+                        class="input is-large"
+                        placeholder="Your Password"
+                        type="password"
+                        id="password"
+                        name="password"
+                        required
+                      />
+                    </div>
                   </div>
                 </div>
                 <button
                   class="button is-block is-info is-large is-fullwidth"
                   type="submit"
                 >
-                  Login
+                  Sign Up
                 </button>
               </form>
-              <a href="/register">Register</a>
+              <a href="/login.html">Login</a>
             </div>
             <p class="has-text-whitesmoke">
               <a href="../signup.html">Sign Up</a> &nbsp;·&nbsp;
