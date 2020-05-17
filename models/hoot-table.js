@@ -1,7 +1,17 @@
 module.exports = function(sequelize, DataTypes) {
-  var Example = sequelize.define("Example", {
+  var Hoot = sequelize.define("Hoot", {
     text: DataTypes.STRING,
-    description: DataTypes.TEXT
+    image: DataTypes.BLOB,
+    createdAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal("CURRENT_TIMESTAMP")
+    },
+    updatedAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal("CURRENT_TIMESTAMP")
+    }
   });
-  return Example;
+  return Hoot;
 };
