@@ -87,15 +87,15 @@ app.get('/register', checkNotAuthenticated, (req, res) => {
 
 
 // Starting the server, syncing our models ------------------------------------/
-// db.sequelize.sync({ force: true }).then(function () {
-//   app.listen(PORT, function () {
-//     console.log(
-//       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-//       PORT,
-//       PORT
-//     );
-//   });
-// });
+ db.sequelize.sync({ force: true }).then(function () {
+   app.listen(PORT, function () {
+     console.log(
+       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+       PORT,
+       PORT
+     );
+   });
+});
 app.post('/register', checkNotAuthenticated, async (req, res) => {
   try {
     var hashedPassword = await bcrypt.hash(req.body.password, 10);
