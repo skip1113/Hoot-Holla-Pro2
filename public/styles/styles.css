@@ -35,6 +35,7 @@ a.navbar-item img{
 }
 .card {
   margin-top: 5rem;
+  border-radius: 10px;
 }
 .card .header {
   padding: 5px 10px;

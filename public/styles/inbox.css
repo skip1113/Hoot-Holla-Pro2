@@ -50,6 +50,9 @@
     overflow: auto;
     height: 500px;
   }
+  .messages::-webkit-scrollbar{
+    display: none;
+  }
   .message {
     display:block;
     background-color: #232B2D;

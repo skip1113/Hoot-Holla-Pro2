@@ -22,18 +22,22 @@ body {
     justify-content: space-around;
     width: 100%;
     border-bottom: 1px solid lightgray;
-  }
-  .navbar-menu {
+}
+.navbar-menu {
     flex-grow: 0.5;
     justify-content: center;
-  }
-  .navbar-menu .navbar-item {
+}
+.navbar-menu .navbar-item {
     flex-grow: 1;
     justify-content: center;
-  }
-  .navbar-menu .navbar-item .control {
+}
+.navbar-menu .navbar-item .control {
     width: 50%;
-  }
+}
+a.navbar-item img{
+    max-height: 60px;
+    width: 90px;
+}
 #welcome{
     color: #adadad;
     font-family: 'Ruge Boogie', cursive;

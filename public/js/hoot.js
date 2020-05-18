@@ -9,14 +9,32 @@ $(document).ready(function() {
     $("#likes").append(" Likes");
 })
   // hootContainer holds all of our posts
+  var hoots = [];
   var hootContainer = $(".hoot-container");
   var postCategorySelect = $("#category");
   // Click events for the edit and delete buttons
   $(document).on("click", "button.delete", handlePostDelete);
   $(document).on("click", "button.edit", handlePostEdit);
+
   $(document).on("click", "#hoot-button", postHoot);
   // $(document).on("click", "#likesButton", addClick);
-  
+
+  $(document).on("submit", "#hoot-form", postHoot);
+
+  function getHoots() {
+    $.get("/api/hoot", function(data) {
+      var rowsToAdd = [];
+      for (var i = 0; i < data.length; i++) {
+        rowsToAdd.push(createHooterRow(data[i]));
+      }
+      console.log(rowsToAdd);
+      initializeRows(rowsToAdd);
+      nameInput.val("");
+    });
+  }
+  getHoots();
+
+
   function postHoot(event) {
     event.preventDefault();
     alert("clicked hoot form");
@@ -29,43 +47,47 @@ $(document).ready(function() {
       return;
     }
     insertHoot({
-      text: hootInput.val().trim()
+      text: hootInput.val().trim(),
+      image: hootImage.val().trim()
     });
   }
   function insertHoot(hooterData) {
     $.post("/api/hoot", hooterData).then(getHooters);
   }
-  // Variable to hold our posts
-  var posts;
 
-  // The code below handles the case where we want to get hoot posts for a specific hooter
-  // Looks for a query param in the url for hooter_id
-  var url = window.location.search;
-  var hooterId;
-  if (url.indexOf("?hooter_id=") !== -1) {
-    hooterId = url.split("=")[1];
-    getPosts(hooterId);
-  }
-  // If there's no hooterId we just get all posts as usual
-  else {
-    getPosts();
+  // function renderHooterList(rows) {
+  //   hooterList
+  //     .children()
+  //     .not(":last")
+  //     .remove();
+  //   hooterContainer.children(".alert").remove();
+  //   if (rows.length) {
+  //     console.log(rows);
+  //     hooterList.prepend(rows);
+  //   } else {
+  //     renderEmpty();
+  //   }
+  // }
+
+  // Function for handling what to render when there are no authors
+  function renderEmpty() {
+    var alertDiv = $("<div>");
+    alertDiv.addClass("alert alert-danger");
+    alertDiv.text("You must create an Hooter before you can create a Post.");
+    hooterContainer.append(alertDiv);
   }
 
-  // This function grabs posts from the database and updates the view
-  function getPosts(hooter) {
-    hooterId = hooter || "";
-    if (hooterId) {
-      hooterId = "/?hooter_id=" + hooterId;
-    }
-    $.get("/api/posts" + hooterId, function(data) {
-      console.log("Posts", data);
-      posts = data;
-      if (!posts || !posts.length) {
-        displayEmpty(hooter);
-      } else {
-        initializeRows();
-      }
-    });
+  // Function for handling what happens when the delete button is pressed
+  function handleDeleteButtonPress() {
+    var listItemData = $(this)
+      .parent("td")
+      .parent("tr")
+      .data("hooter");
+    var id = listItemData.id;
+    $.ajax({
+      method: "DELETE",
+      url: "/api/hoot/" + id
+    }).then(getHooters);
   }
 
   // This function does an API call to delete posts
@@ -82,14 +104,15 @@ $(document).ready(function() {
   function initializeRows() {
     hootContainer.empty();
     var postsToAdd = [];
-    for (var i = 0; i < posts.length; i++) {
-      postsToAdd.push(createNewRow(posts[i]));
+    for (var i = 0; i < hoots.length; i++) {
+      postsToAdd.push(createNewRow(hoots[i]));
     }
     hootContainer.append(postsToAdd);
   }
 
   // This function constructs a post's HTML
   function createNewRow(hoot) {
+
     // var cardOne = $("<div>");
     // cardOne.addClass("column is-half", id="blog")
     // var cardTwo = $("<div>");
@@ -175,7 +198,7 @@ $(document).ready(function() {
     // newPostCard.append(newPostCardBody);
     // newPostCard.data("post", post);
     return cardThirteen;
-  }
+
 
   // This function figures out which post we want to delete and then calls deletePost
   function handlePostDelete() {
