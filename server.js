@@ -46,7 +46,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-var userResponse = function (req, res) {
+var userResponse = function(req, res) {
   console.log('dan, dan', req.body);
   res.redirect('/login');
 };
@@ -85,17 +85,16 @@ app.get('/register', checkNotAuthenticated, (req, res) => {
   res.sendFile(path.join(__dirname, './public/register.html'));
 });
 
-
 // Starting the server, syncing our models ------------------------------------/
- db.sequelize.sync({ force: true }).then(function () {
-   app.listen(PORT, function () {
-     console.log(
-       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-       PORT,
-       PORT
-     );
-   });
-});
+//  db.sequelize.sync({ force: true }).then(function () {
+//    app.listen(PORT, function () {
+//      console.log(
+//        "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+//        PORT,
+//        PORT
+//      );
+//    });
+// });
 app.post('/register', checkNotAuthenticated, async (req, res) => {
   try {
     var hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -110,7 +109,6 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
   } catch {
     res.redirect('/register');
   }
-
 });
 
 app.delete('/logout', (req, res) => {
@@ -124,14 +122,14 @@ function checkAuthenticated(req, res, next) {
   }
 
   res.redirect('/login');
-};
+}
 
 function checkNotAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     return res.redirect('/');
   }
   next();
-};
+}
 
 app.use(express.static('public'));
 app.listen(3000);
