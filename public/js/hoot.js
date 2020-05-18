@@ -1,8 +1,13 @@
-import { INSERT } from "sequelize/types/lib/query-types";
+// import { INSERT } from "sequelize/types/lib/query-types";
 
 $(document).ready(function() {
-  /* global moment */
-
+  var likes = 0;
+  $("#likesButton").on("click", function() {
+    // alert("liked cliked");
+    like ++;
+    $("#likes").text(like);
+    $("#likes").append(" Likes");
+})
   // hootContainer holds all of our posts
   var hoots = [];
   var hootContainer = $(".hoot-container");
@@ -10,6 +15,10 @@ $(document).ready(function() {
   // Click events for the edit and delete buttons
   $(document).on("click", "button.delete", handlePostDelete);
   $(document).on("click", "button.edit", handlePostEdit);
+
+  $(document).on("click", "#hoot-button", postHoot);
+  // $(document).on("click", "#likesButton", addClick);
+
   $(document).on("submit", "#hoot-form", postHoot);
 
   function getHoots() {
@@ -25,8 +34,10 @@ $(document).ready(function() {
   }
   getHoots();
 
+
   function postHoot(event) {
     event.preventDefault();
+    alert("clicked hoot form");
     if (
       !hootInput
         .val()
@@ -101,42 +112,93 @@ $(document).ready(function() {
 
   // This function constructs a post's HTML
   function createNewRow(hoot) {
+
+    // var cardOne = $("<div>");
+    // cardOne.addClass("column is-half", id="blog")
+    // var cardTwo = $("<div>");
+    // cardTwo.addClass("card");
+    // var cardThree = $("<div>");
+    // cardThree.addClass("header");
+    // var cardFour = $("<div>");
+    // cardFour.addClass("media");
+    // var cardFive = $("<div>");
+    // cardfive.addClass("media-left");
+    // var cardSix = $("<figure>");
+    // cardSix.addClass("image is-48x48");
+    // var cardImg = $("<img>");
+    // cardSeven = $("<div>");
+    // cardSeven.addClass("media-content");
+    // var cardEight = $("<h2>");
+    // cardEight.text("John Smith");
+    // var cardNine = $("<h4>");
+    // cardNine.addClass("@johnsmith");
+    // var cardTen = $("<div>");
+    // cardTen.addClass("card-image");
+    // var cardEleven = $("<figure>");
+    // cardEleven.addClass("image is-4by3");
+    // var cardTwelve = $("<img>");
+    var cardThirteen = $("<div>");
+    cardThirteen.addClass("content");
+    // var likesCount = $("<h2>");
+    // cardFourteen.text("Likes");
+    // var cardFifteen = $("<div>");
+    // cardFifteen.addClass("level-item has-text-centerd");
+    // var cardSixteen = $("<a>");
+    // cardSixteen.addClass("fas fa-feather-alt");
+    // cardSixteen.attr("href", "#here");
+    // var cardSeventeen = $("<a>");
+    // cardSeventeen.addClass("fas fa-comment-alt");
+    // cardSeventeen.attr("href", "#here");
+    // var cardEightteen = $("<div>");
+    // cardEightteen.addClass("content");
+    var p = $("<p>");
+    p.text("hoot.body"); 
     var formattedDate = new Date(hoot.createdAt);
     formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
-    var newHootCard = $("<div>");
-    newHootCard.addClass("card");
-    var deleteBtn = $("<button>");
-    deleteBtn.text("x");
-    deleteBtn.addClass("delete btn btn-danger");
-    var editBtn = $("<button>");
-    editBtn.text("EDIT");
-    editBtn.addClass("edit btn btn-info");
-    var newHootTitle = $("<h2>");
-    var newHootDate = $("<small>");
-    var newHoothooter = $("<h5>");
-    newHoothooter.text("Written by: " + hoot.hooter.name);
-    newHoothooter.css({
-      float: "right",
-      color: "blue",
-      "margin-top": "-10px"
-    });
-    var newHootCardBody = $("<div>");
-    newHootCardBody.addClass("card-body");
-    var newHootBody = $("<p>");
-    // newHootTitle.text(Hoot.title + " ");
-    newHootBody.text(hoot.body);
-    // newPostDate.text(formattedDate);
-    // newPostTitle.append(newPostDate);
-    // newPostCardHeading.append(deleteBtn);
-    // newPostCardHeading.append(editBtn);
-    // newPostCardHeading.append(newPostTitle);
+    cardEightteen.append(p);
+    // var newPostCard = $("<div>");
+    // newPostCard.addClass("card");
+
+    // var newPostCardHeading = $("<div>");
+    // newPostCardHeading.addClass("card");
+
+    // var deleteBtn = $("<button>");
+    // deleteBtn.text("x");
+    // deleteBtn.addClass("delete btn btn-danger");
+
+    // var editBtn = $("<button>");
+    // editBtn.text("EDIT");
+    // editBtn.addClass("edit btn btn-info");
+
+    var newPostTitle = $("<h2>");
+    var newPostDate = $("<small>");
+    // var newPosthooter = $("<h5>");
+    // newPosthooter.text("Written by: " + post.hooter.name);
+    // newPosthooter.css({
+    //   float: "right",
+    //   color: "blue",
+    //   "margin-top": "-10px"
+    // });
+    // var newPostCardBody = $("<div>");
+    // newPostCardBody.addClass("card-body");
+    // var newPostBody = $("<p>");
+          // newPostTitle.text(post.title + " ");
+    // newPostBody.text(post.body);
+    newPostDate.text(formattedDate);
+    newPostTitle.append(newPostDate);
+    cardThirteen.append(newPostTitle);
+    cardThirteen.append(p);
+    cardThirteen.data("hoot", hoot);
+          // newPostCardHeading.append(deleteBtn);
+          // newPostCardHeading.append(editBtn);
+    // cardEightteen.append(newPostTitle);
     // newPostCardHeading.append(newPosthooter);
-    newHootCardBody.append(newHootBody);
-    // newHootCard.append(newHootCardHeading);
-    newHootCard.append(newHootCardBody);
-    newHootCard.data("hoot", hoot);
-    return newHootCard;
-  }
+    // newPostCardBody.append(newPostBody);
+    // newPostCard.append(newPostCardHeading);
+    // newPostCard.append(newPostCardBody);
+    // newPostCard.data("post", post);
+    return cardThirteen;
+
 
   // This function figures out which post we want to delete and then calls deletePost
   function handlePostDelete() {
