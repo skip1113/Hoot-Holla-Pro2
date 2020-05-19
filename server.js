@@ -27,19 +27,23 @@ app.use(methodOverride('_method'));
 
 passportConfig(passport);
 
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    name: 'cookie',
-    resave: false,
-    saveUninitialized: false,
-    cookie: {},
-  })
-);
+app.use(session({
+  secret: process.env.SESSION_SECRET, 
+  resave: false, 
+  saveUninitialized: false
+}))
+// app.use(
+//   session({
+//     secret: process.env.SESSION_SECRET,
+//     name: 'cookie',
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {},
+//   })
+// );
 app.use(passport.initialize());
 app.use(passport.session());
 var userResponse = function(req, res) {
-  console.log('dan, dan', req.body);
   res.redirect('/login');
 };
 app.post('/register', passport.authenticate('local-signup'), userResponse);
