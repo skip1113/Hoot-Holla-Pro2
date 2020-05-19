@@ -1,13 +1,13 @@
 // import { INSERT } from "sequelize/types/lib/query-types";
 
 $(document).ready(function() {
-  var likes = 0;
+  var like = 0;
   $("#likesButton").on("click", function() {
     // alert("liked cliked");
-    like ++;
+    like++;
     $("#likes").text(like);
     $("#likes").append(" Likes");
-})
+  });
   // hootContainer holds all of our posts
   var hoots = [];
   var hootContainer = $(".hoot-container");
@@ -33,7 +33,6 @@ $(document).ready(function() {
     });
   }
   getHoots();
-
 
   function postHoot(event) {
     event.preventDefault();
@@ -112,7 +111,6 @@ $(document).ready(function() {
 
   // This function constructs a post's HTML
   function createNewRow(hoot) {
-
     // var cardOne = $("<div>");
     // cardOne.addClass("column is-half", id="blog")
     // var cardTwo = $("<div>");
@@ -152,7 +150,7 @@ $(document).ready(function() {
     // var cardEightteen = $("<div>");
     // cardEightteen.addClass("content");
     var p = $("<p>");
-    p.text("hoot.body"); 
+    p.text("hoot.body");
     var formattedDate = new Date(hoot.createdAt);
     formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
     cardEightteen.append(p);
@@ -182,15 +180,15 @@ $(document).ready(function() {
     // var newPostCardBody = $("<div>");
     // newPostCardBody.addClass("card-body");
     // var newPostBody = $("<p>");
-          // newPostTitle.text(post.title + " ");
+    // newPostTitle.text(post.title + " ");
     // newPostBody.text(post.body);
     newPostDate.text(formattedDate);
     newPostTitle.append(newPostDate);
     cardThirteen.append(newPostTitle);
     cardThirteen.append(p);
     cardThirteen.data("hoot", hoot);
-          // newPostCardHeading.append(deleteBtn);
-          // newPostCardHeading.append(editBtn);
+    // newPostCardHeading.append(deleteBtn);
+    // newPostCardHeading.append(editBtn);
     // cardEightteen.append(newPostTitle);
     // newPostCardHeading.append(newPosthooter);
     // newPostCardBody.append(newPostBody);
@@ -199,42 +197,42 @@ $(document).ready(function() {
     // newPostCard.data("post", post);
     return cardThirteen;
 
-
-  // This function figures out which post we want to delete and then calls deletePost
-  function handlePostDelete() {
-    var currentPost = $(this)
-      .parent()
-      .parent()
-      .data("post");
-    deletePost(currentPost.id);
-  }
-
-  // This function figures out which post we want to edit and takes it to the appropriate url
-  function handlePostEdit() {
-    var currentPost = $(this)
-      .parent()
-      .parent()
-      .data("post");
-    window.location.href = "/cms?post_id=" + currentPost.id;
-  }
-
-  // This function displays a message when there are no posts
-  function displayEmpty(id) {
-    var query = window.location.search;
-    var partial = "";
-    if (id) {
-      partial = " for hooter #" + id;
+    // This function figures out which post we want to delete and then calls deletePost
+    function handlePostDelete() {
+      var currentPost = $(this)
+        .parent()
+        .parent()
+        .data("post");
+      deletePost(currentPost.id);
     }
-    hootContainer.empty();
-    var messageH2 = $("<h2>");
-    messageH2.css({ "text-align": "center", "margin-top": "50px" });
-    messageH2.html(
-      "No posts yet" +
-        partial +
-        ", navigate <a href='/cms" +
-        query +
-        "'>here</a> in order to get started."
-    );
-    hootContainer.append(messageH2);
+
+    // This function figures out which post we want to edit and takes it to the appropriate url
+    function handlePostEdit() {
+      var currentPost = $(this)
+        .parent()
+        .parent()
+        .data("post");
+      window.location.href = "/cms?post_id=" + currentPost.id;
+    }
+
+    // This function displays a message when there are no posts
+    function displayEmpty(id) {
+      var query = window.location.search;
+      var partial = "";
+      if (id) {
+        partial = " for hooter #" + id;
+      }
+      hootContainer.empty();
+      var messageH2 = $("<h2>");
+      messageH2.css({ "text-align": "center", "margin-top": "50px" });
+      messageH2.html(
+        "No posts yet" +
+          partial +
+          ", navigate <a href='/cms" +
+          query +
+          "'>here</a> in order to get started."
+      );
+      hootContainer.append(messageH2);
+    }
   }
 });
