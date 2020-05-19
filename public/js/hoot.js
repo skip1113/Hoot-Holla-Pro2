@@ -1,7 +1,7 @@
 // import { INSERT } from "sequelize/types/lib/query-types";
 
 $(document).ready(function() {
-  var likes = 0;
+  var like = 0;
   $("#likesButton").on("click", function() {
     // alert("liked cliked");
     like++;
