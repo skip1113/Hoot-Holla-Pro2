@@ -18,7 +18,8 @@ var CookieParser = require('cookie-parser');
 var passportConfig = require('./config/passport-config');
 var path = require('path');
 
-app.use(BodyParser.json());
+// app.use(BodyParser.json());
+app.use(express.json());
 app.use(CookieParser());
 app.use(BodyParser.urlencoded({ extended: true }));
 
@@ -26,8 +27,7 @@ app.use(flash());
 app.use(methodOverride('_method'));
 
 passportConfig(passport);
-console.log("here", process.env.SESSION_SECRET);
-console.log("here", process.env)
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -54,8 +54,14 @@ app.get('/logout', (req, res) => {
 // var users = [];
 
 app.get('/', checkAuthenticated, (req, res) => {
-  console.log(req.user);
+  console.log("user",req.user);
   res.redirect('/index.html');
+});
+
+app.get('/api/currentuser', checkAuthenticated, (req, res) => {
+  console.log("user",req.user.name);
+  res.json({name:req.user.name,email:req.user.email});
+  // res.send("hello world");
 });
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
@@ -100,6 +106,7 @@ app.delete('/logout', (req, res) => {
 });
 
 function checkAuthenticated(req, res, next) {
+  console.log("check authentication",req.isAuthenticated());
   if (req.isAuthenticated()) {
     return next();
   }
@@ -108,6 +115,7 @@ function checkAuthenticated(req, res, next) {
 }
 
 function checkNotAuthenticated(req, res, next) {
+  console.log("check not authentication",req.isAuthenticated());
   if (req.isAuthenticated()) {
     return res.redirect('/');
   }

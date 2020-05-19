@@ -9,6 +9,14 @@ CREATE TABLE users (
   password varchar(255) NOT NULL,
   created timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+create table Hoots (
+	id int auto_increment not null,
+	hoot text not null,
+    image BLOB,
+    createdAt TIMESTAMP NOT NULL default current_timestamp,
+    primary key (id)
+);
+SELECT * FROM Hoots;
 SELECT * FROM users;
 SELECT * FROM users WHERE email = '" + email + "';
 SELECT * from users where id =  + id;

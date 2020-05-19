@@ -10,7 +10,7 @@ if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'rootroot',
+    password: 'R@gnorok303B@man',
     database: 'hoot_holla',
   });
 }
@@ -86,14 +86,14 @@ module.exports = function (passport) {
               var newUserMysql = new Object();
 
               newUserMysql.email = email;
-              var hashedPassword = await bcrypt.hash(req.body.password, 10);
+              // var hashedPassword = await bcrypt.hash(req.body.password, 10);
               newUserMysql.password = password; // use the generateHash function in our user model
 
               var insertQuery =
-                "INSERT INTO users ( email, password ) values ('" +
+                "INSERT INTO users (name, email, password ) values ('"+req.body.name.trim()+"','" +
                 email +
                 "','" +
-                hashedPassword +
+                password +
                 "')";
               console.log(insertQuery);
               connection.query(insertQuery, function (err, rows) {
