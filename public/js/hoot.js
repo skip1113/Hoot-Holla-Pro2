@@ -12,6 +12,24 @@ $(document).ready(function() {
   var hoots = [];
   var hootContainer = $(".hoot-container");
   var postCategorySelect = $("#category");
+
+  // This function figures out which post we want to delete and then calls deletePost
+  function handlePostDelete() {
+    var currentPost = $(this)
+      .parent()
+      .parent()
+      .data("post");
+    deletePost(currentPost.id);
+  }
+
+  // This function figures out which post we want to edit and takes it to the appropriate url
+  function handlePostEdit() {
+    var currentPost = $(this)
+      .parent()
+      .parent()
+      .data("post");
+    window.location.href = "/cms?post_id=" + currentPost.id;
+  }
   // Click events for the edit and delete buttons
   $(document).on("click", "button.delete", handlePostDelete);
   $(document).on("click", "button.edit", handlePostEdit);
@@ -33,6 +51,15 @@ $(document).ready(function() {
     });
   }
   getHoots();
+
+  function getUser() {
+    $.get("/api/currentuser", function(userRes) {
+      // alert(userRes.name);
+      $("#username").text(userRes.name);
+      $("#useremail").text("@" + userRes.name);
+    });
+  }
+  getUser();
 
   function postHoot(event) {
     event.preventDefault();
@@ -77,17 +104,17 @@ $(document).ready(function() {
   }
 
   // Function for handling what happens when the delete button is pressed
-  function handleDeleteButtonPress() {
-    var listItemData = $(this)
-      .parent("td")
-      .parent("tr")
-      .data("hooter");
-    var id = listItemData.id;
-    $.ajax({
-      method: "DELETE",
-      url: "/api/hoot/" + id
-    }).then(getHooters);
-  }
+  // function handlePostDelete() {
+  //   var listItemData = $(this)
+  //     .parent("td")
+  //     .parent("tr")
+  //     .data("hooter");
+  //   var id = listItemData.id;
+  //   $.ajax({
+  //     method: "DELETE",
+  //     url: "/api/hoot/" + id
+  //   }).then(getHooters);
+  // }
 
   // This function does an API call to delete posts
   function deletePost(id) {
@@ -196,24 +223,6 @@ $(document).ready(function() {
     // newPostCard.append(newPostCardBody);
     // newPostCard.data("post", post);
     return cardThirteen;
-
-    // This function figures out which post we want to delete and then calls deletePost
-    function handlePostDelete() {
-      var currentPost = $(this)
-        .parent()
-        .parent()
-        .data("post");
-      deletePost(currentPost.id);
-    }
-
-    // This function figures out which post we want to edit and takes it to the appropriate url
-    function handlePostEdit() {
-      var currentPost = $(this)
-        .parent()
-        .parent()
-        .data("post");
-      window.location.href = "/cms?post_id=" + currentPost.id;
-    }
 
     // This function displays a message when there are no posts
     function displayEmpty(id) {
