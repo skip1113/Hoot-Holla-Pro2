@@ -87,29 +87,33 @@
     <!-- end of navbar -->
 
     <div class="columns is dark body-columns">
-      <div id="flow">
-        <span class="flow-1"></span>
-        <span class="flow-2"></span>
-        <span class="flow-3"></span>
-      </div>
-      <div class="column">
-        <div class="card" id="hoot-post">
-          <div class="header">
-            <div class="field">
-              <label class="label is -light">Hoots</label>
-              <div class="control">
-                <textarea
-                  class="textarea is-medium"
-                  placeholder="What's on your mind today..."
-                  style="min-height: 5em;"
-                ></textarea>
-                <br />
-                <textarea
-                  class="textarea is-small"
-                  placeholder="Image URL"
-                  style="min-height: 5em;"
-                ></textarea>
-              </div>
+        <div id="flow">
+            <span class="flow-1"></span>
+            <span class="flow-2"></span>
+            <span class="flow-3"></span>
+        </div>
+        <div class="column">
+            <div class="card" id="hoot-post">
+                <div class="header">
+                    <div class="field">
+                        <label class="label is -light">Hoots</label>
+                        <div class="control">
+                            <textarea class="textarea is-medium" placeholder="What's on your mind today..."
+                                style="min-height: 5em;"></textarea>
+                            <br>
+                            <textarea class="textarea is-small" placeholder="Image URL"
+                                style="min-height: 5em;"></textarea>
+                        </div>
+                    </div>
+                    <div class="control">
+                        <button type="submit" class="button is-light is-quarterwidth has-text-weight-medium is-medium"
+                            id="hoot-button">Hoot
+                            Away<i class="fas fa-feather-alt"></i></button>
+                        <i class="fas fa-ellipsis-v" id="paper-icon"></i>
+                        <i class="fas fa-map-marked-alt" id="marker"></i>
+                        <i class="fas fa-images" id="paper-icon"></i>
+                    </div>
+                </div>
             </div>
             <div class="control">
               <button
@@ -410,6 +414,7 @@
         </p>
       </div>
     </footer>
+
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"

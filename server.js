@@ -4,7 +4,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 var express = require('express');
 var app = express();
-var bcrypt = require('bcrypt');
 var passport = require('passport');
 var flash = require('express-flash');
 var session = require('express-session');
@@ -78,21 +77,7 @@ app.get('/register', checkNotAuthenticated, (req, res) => {
   res.sendFile(path.join(__dirname, './public/register.html'));
 });
 
-app.post('/register', checkNotAuthenticated, async (req, res) => {
-  try {
-    var hashedPassword = await bcrypt.hash(req.body.password, 10);
-    users.push({
-      id: Date.now().toString(),
-      name: req.body.name,
-      email: req.body.email,
-      password: hashedPassword,
-    });
-    console.log('user register post route');
-    res.redirect('/login');
-  } catch {
-    res.redirect('/register');
-  }
-});
+app.post('/register', checkNotAuthenticated, async (req, res) => {});
 
 app.delete('/logout', (req, res) => {
   req.logOut();
@@ -115,4 +100,4 @@ function checkNotAuthenticated(req, res, next) {
 }
 
 app.use(express.static('public'));
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
