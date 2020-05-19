@@ -26,7 +26,8 @@ app.use(flash());
 app.use(methodOverride('_method'));
 
 passportConfig(passport);
-console.log("here",process.env.SESSION_SECRET)
+console.log("here",process.env.SESSION_SECRET);
+console.log("here",process.env)
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -39,7 +40,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 var userResponse = function(req, res) {
-  console.log('dan, dan', req.body);
   res.redirect('/login');
 };
 app.post('/register', passport.authenticate('local-signup'), userResponse);
