@@ -1,7 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
   var Hoot = sequelize.define("Hoot", {
-    text: DataTypes.STRING,
+    hoot: DataTypes.STRING,
     image: DataTypes.BLOB,
+    userId: DataTypes.INTEGER,
     createdAt: {
       allowNull: false,
       type: DataTypes.DATE,
