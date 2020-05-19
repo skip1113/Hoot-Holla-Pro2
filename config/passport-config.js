@@ -1,7 +1,6 @@
 var LocalStrategy = require("passport-local").Strategy;
-
-var mysql = require("mysql");
-
+var mysql = require('mysql');
+var bcrypt = require('bcrypt');
 var connection;
 if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
@@ -63,7 +62,7 @@ module.exports = function(passport) {
         // we are checking to see if the user trying to login already exists
         connection.query(
           "select * from users where email = '" + email + "'",
-          function(err, rows) {
+          async function(err, rows) {
             console.log(rows);
             console.log("above row object");
             if (err) {
@@ -81,13 +80,14 @@ module.exports = function(passport) {
               var newUserMysql = new Object();
 
               newUserMysql.email = email;
+              var hashedPassword = await bcrypt.hash(req.body.password, 10);
               newUserMysql.password = password; // use the generateHash function in our user model
-
+              console.log(hashedPassword);
               var insertQuery =
                 "INSERT INTO users ( email, password ) values ('" +
                 email +
                 "','" +
-                password +
+                hashedPassword +
                 "')";
               console.log(insertQuery);
               connection.query(insertQuery, function(err, rows) {
