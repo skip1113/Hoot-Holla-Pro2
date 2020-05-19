@@ -26,7 +26,7 @@ app.use(flash());
 app.use(methodOverride('_method'));
 
 passportConfig(passport);
-
+console.log("here",process.env.SESSION_SECRET)
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
