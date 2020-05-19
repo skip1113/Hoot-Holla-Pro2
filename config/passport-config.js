@@ -19,6 +19,7 @@ if (process.env.JAWSDB_URL) {
     console.log("connected as id" + connection.threadId);
   });
 }
+
 // expose this function to our app using module.exports
 module.exports = function(passport) {
   // =========================================================================
