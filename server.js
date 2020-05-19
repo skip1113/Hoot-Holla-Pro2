@@ -4,7 +4,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 var express = require('express');
 var app = express();
-var bcrypt = require('bcrypt');
+// var bcrypt = require('bcrypt');
 var passport = require('passport');
 var flash = require('express-flash');
 var session = require('express-session');
@@ -26,8 +26,8 @@ app.use(flash());
 app.use(methodOverride('_method'));
 
 passportConfig(passport);
-console.log("here",process.env.SESSION_SECRET);
-console.log("here",process.env)
+console.log("here", process.env.SESSION_SECRET);
+console.log("here", process.env)
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -39,7 +39,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-var userResponse = function(req, res) {
+var userResponse = function (req, res) {
   res.redirect('/login');
 };
 app.post('/register', passport.authenticate('local-signup'), userResponse);
@@ -77,21 +77,22 @@ app.get('/register', checkNotAuthenticated, (req, res) => {
   res.sendFile(path.join(__dirname, './public/register.html'));
 });
 
-app.post('/register', checkNotAuthenticated, async (req, res) => {
-  try {
-    var hashedPassword = await bcrypt.hash(req.body.password, 10);
-    users.push({
-      id: Date.now().toString(),
-      name: req.body.name,
-      email: req.body.email,
-      password: hashedPassword,
-    });
-    console.log('user register post route');
-    res.redirect('/login');
-  } catch {
-    res.redirect('/register');
-  }
-});
+app.post('/register', checkNotAuthenticated, async (req, res) => { });
+// app.post('/register', checkNotAuthenticated, async (req, res) => {
+//   try {
+//     var hashedPassword = await bcrypt.hash(req.body.password, 10);
+//     users.push({
+//       id: Date.now().toString(),
+//       name: req.body.name,
+//       email: req.body.email,
+//       password: hashedPassword,
+//     });
+//     console.log('user register post route');
+//     res.redirect('/login');
+//   } catch {
+//     res.redirect('/register');
+//   }
+// });
 
 app.delete('/logout', (req, res) => {
   req.logOut();

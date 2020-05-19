@@ -1,6 +1,7 @@
 var LocalStrategy = require('passport-local').Strategy;
 
 var mysql = require('mysql');
+var bcrypt = require('bcrypt');
 
 var connection;
 if (process.env.JAWSDB_URL) {
@@ -9,14 +10,23 @@ if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'R@gnorok303B@man',
+    password: 'rootroot',
     database: 'hoot_holla',
   });
 }
 connection.connect(function (err) {
   if (err) throw err;
   console.log('connected as id ' + connection.threadId);
+  readHoots();
 });
+function readHoots() {
+  var query = connection.query(
+    "SELECT * FROM Hoots", function (err, res) {
+      if (err) throw err;
+      console.log(res);
+    }
+  )
+}
 // expose this function to our app using module.exports
 module.exports = function (passport) {
   // =========================================================================
@@ -60,7 +70,7 @@ module.exports = function (passport) {
         // we are checking to see if the user trying to login already exists
         connection.query(
           "select * from users where email = '" + email + "'",
-          function (err, rows) {
+          async function (err, rows) {
             console.log(rows);
             console.log('above row object');
             if (err) return done(err);
@@ -76,13 +86,14 @@ module.exports = function (passport) {
               var newUserMysql = new Object();
 
               newUserMysql.email = email;
+              var hashedPassword = await bcrypt.hash(req.body.password, 10);
               newUserMysql.password = password; // use the generateHash function in our user model
 
               var insertQuery =
                 "INSERT INTO users ( email, password ) values ('" +
                 email +
                 "','" +
-                password +
+                hashedPassword +
                 "')";
               console.log(insertQuery);
               connection.query(insertQuery, function (err, rows) {
