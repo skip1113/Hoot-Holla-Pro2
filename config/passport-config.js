@@ -5,18 +5,20 @@ var mysql = require('mysql');
 var connection;
 if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
-} else { connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'R@gnorok303B@man',
-  database: 'hoot_holla',
-});
-connection.connect(function(err) {
+} else {
+  connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'R@gnorok303B@man',
+    database: 'hoot_holla',
+  });
+}
+connection.connect(function (err) {
   if (err) throw err;
   console.log('connected as id ' + connection.threadId);
 });
 // expose this function to our app using module.exports
-module.exports = function(passport) {
+module.exports = function (passport) {
   // =========================================================================
   // passport session setup ==================================================
   // =========================================================================
@@ -24,13 +26,13 @@ module.exports = function(passport) {
   // passport needs ability to serialize and unserialize users out of session
 
   // used to serialize the user for the session
-  passport.serializeUser(function(user, done) {
+  passport.serializeUser(function (user, done) {
     done(null, user.id);
   });
 
   // used to deserialize the user
-  passport.deserializeUser(function(id, done) {
-    connection.query('select * from users where id = ' + id, function(
+  passport.deserializeUser(function (id, done) {
+    connection.query('select * from users where id = ' + id, function (
       err,
       rows
     ) {
@@ -53,12 +55,12 @@ module.exports = function(passport) {
         passwordField: 'password',
         passReqToCallback: true, // allows us to pass back the entire request to the callback
       },
-      function(req, email, password, done) {
+      function (req, email, password, done) {
         // find a user whose email is the same as the forms email
         // we are checking to see if the user trying to login already exists
         connection.query(
           "select * from users where email = '" + email + "'",
-          function(err, rows) {
+          function (err, rows) {
             console.log(rows);
             console.log('above row object');
             if (err) return done(err);
@@ -83,7 +85,7 @@ module.exports = function(passport) {
                 password +
                 "')";
               console.log(insertQuery);
-              connection.query(insertQuery, function(err, rows) {
+              connection.query(insertQuery, function (err, rows) {
                 console.log('err', err);
                 console.log('rows', rows);
                 newUserMysql.id = rows.insertId;
@@ -112,12 +114,12 @@ module.exports = function(passport) {
         passwordField: 'password',
         passReqToCallback: true, // allows us to pass back the entire request to the callback
       },
-      function(req, email, password, done) {
+      function (req, email, password, done) {
         // callback with email and password from our form
 
         connection.query(
           "SELECT * FROM `users` WHERE `email` = '" + email + "'",
-          function(err, rows) {
+          function (err, rows) {
             if (err) return done(err);
             if (!rows.length) {
               return done(
