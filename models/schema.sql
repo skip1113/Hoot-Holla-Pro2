@@ -14,6 +14,7 @@ create table Hoots (
 	hoot text not null,
     image BLOB,
     createdAt TIMESTAMP NOT NULL default current_timestamp,
+    userId int not null,
     primary key (id)
 );
 SELECT * FROM Hoots;

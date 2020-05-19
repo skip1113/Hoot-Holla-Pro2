@@ -82,6 +82,8 @@ app.post(
 app.get('/register', checkNotAuthenticated, (req, res) => {
   res.sendFile(path.join(__dirname, './public/register.html'));
 });
+//Getting hoot table
+
 
 app.post('/register', checkNotAuthenticated, async (req, res) => { });
 // app.post('/register', checkNotAuthenticated, async (req, res) => {
@@ -121,6 +123,7 @@ function checkNotAuthenticated(req, res, next) {
   }
   next();
 }
-
+require("./routes/apiRoutes.js")(app);
+require("./routes/htmlRoutes.js")(app);
 app.use(express.static('public'));
 app.listen(process.env.PORT || 3000);
