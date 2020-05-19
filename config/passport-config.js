@@ -1,20 +1,24 @@
-var LocalStrategy = require('passport-local').Strategy;
+var LocalStrategy = require("passport-local").Strategy;
 
-var mysql = require('mysql');
+var mysql = require("mysql");
 
 var connection;
 if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
-} else {connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'rootroot',
-  database: 'hoot_holla',
-});
-connection.connect(function(err) {
-  if (err) throw err;
-  console.log('connected as id ' + connection.threadId);
-});
+} else {
+  connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "rootroot",
+    database: "hoot_holla"
+  });
+  connection.connect(function(err) {
+    if (err) {
+      throw err;
+    }
+    console.log("connected as id" + connection.threadId);
+  });
+}
 // expose this function to our app using module.exports
 module.exports = function(passport) {
   // =========================================================================
@@ -30,7 +34,7 @@ module.exports = function(passport) {
 
   // used to deserialize the user
   passport.deserializeUser(function(id, done) {
-    connection.query('select * from users where id = ' + id, function(
+    connection.query("select * from users where id = " + id, function(
       err,
       rows
     ) {
@@ -45,13 +49,13 @@ module.exports = function(passport) {
   // by default, if there was no name, it would just be called 'local'
 
   passport.use(
-    'local-signup',
+    "local-signup",
     new LocalStrategy(
       {
         // by default, local strategy uses username and password, we will override with email
-        usernameField: 'email',
-        passwordField: 'password',
-        passReqToCallback: true, // allows us to pass back the entire request to the callback
+        usernameField: "email",
+        passwordField: "password",
+        passReqToCallback: true // allows us to pass back the entire request to the callback
       },
       function(req, email, password, done) {
         // find a user whose email is the same as the forms email
@@ -60,13 +64,15 @@ module.exports = function(passport) {
           "select * from users where email = '" + email + "'",
           function(err, rows) {
             console.log(rows);
-            console.log('above row object');
-            if (err) return done(err);
+            console.log("above row object");
+            if (err) {
+              return done(err);
+            }
             if (rows.length) {
               return done(
                 null,
                 false,
-                req.flash('signupMessage', 'That email is already taken.')
+                req.flash("signupMessage", "That email is already taken.")
               );
             } else {
               // if there is no user with that email
@@ -84,8 +90,8 @@ module.exports = function(passport) {
                 "')";
               console.log(insertQuery);
               connection.query(insertQuery, function(err, rows) {
-                console.log('err', err);
-                console.log('rows', rows);
+                console.log("err", err);
+                console.log("rows", rows);
                 newUserMysql.id = rows.insertId;
 
                 return done(null, newUserMysql);
@@ -104,13 +110,13 @@ module.exports = function(passport) {
   // by default, if there was no name, it would just be called 'local'
 
   passport.use(
-    'local-login',
+    "local-login",
     new LocalStrategy(
       {
         // by default, local strategy uses username and password, we will override with email
-        usernameField: 'email',
-        passwordField: 'password',
-        passReqToCallback: true, // allows us to pass back the entire request to the callback
+        usernameField: "email",
+        passwordField: "password",
+        passReqToCallback: true // allows us to pass back the entire request to the callback
       },
       function(req, email, password, done) {
         // callback with email and password from our form
@@ -118,25 +124,32 @@ module.exports = function(passport) {
         connection.query(
           "SELECT * FROM `users` WHERE `email` = '" + email + "'",
           function(err, rows) {
-            if (err) return done(err);
+            if (err) {
+              return done(err);
+            }
             if (!rows.length) {
               return done(
                 null,
                 false,
-                req.flash('loginMessage', 'No user found.')
+                req.flash("loginMessage", "No user found.")
               ); // req.flash is the way to set flashdata using connect-flash
             }
 
             // if the user is found but the password is wrong
-            if (!(rows[0].password == password))
-              return done(
-                null,
-                false,
-                req.flash('loginMessage', 'Oops! Wrong password.')
-              ); // create the loginMessage and save it to session as flashdata
+            // eslint-disable-next-line eqeqeq
+            if (!(rows[0].password == password)) {
+              {
+                return done(
+                  null,
+                  false,
+                  req.flash("loginMessage", "Oops! Wrong password.")
+                );
+              } // create the loginMessage and save it to session as flashdata
 
-            // all is well, return successful user
-            return done(null, rows[0]);
+              // all is well, return successful user
+              // eslint-disable-next-line no-unreachable
+              return done(null, rows[0]);
+            }
           }
         );
       }
