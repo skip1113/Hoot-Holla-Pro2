@@ -2,6 +2,7 @@
 
 $(document).ready(function() {
   var like = 0;
+  var userId = 0;
   $("#likesButton").on("click", function() {
     // alert("liked cliked");
     like++;
@@ -43,11 +44,11 @@ $(document).ready(function() {
     $.get("/api/hoot", function(data) {
       var rowsToAdd = [];
       for (var i = 0; i < data.length; i++) {
-        rowsToAdd.push(createHooterRow(data[i]));
+        rowsToAdd.push(createNewRow(data[i]));
       }
       console.log(rowsToAdd);
       initializeRows(rowsToAdd);
-      nameInput.val("");
+      // nameInput.val("");
     });
   }
   getHoots();
@@ -57,28 +58,33 @@ $(document).ready(function() {
       // alert(userRes.name);
       $("#username").text(userRes.name);
       $("#useremail").text("@" + userRes.name);
+      console.log("User ID!", userRes.id);
+      userId = userRes.id;
     });
   }
   getUser();
 
   function postHoot(event) {
     event.preventDefault();
-    alert("clicked hoot form");
+    var newHoot = $("#newHoot").val().trim();
+    var imgUrl = $("#imgUrl").val().trim();
+    console.log("The hoot is... ", newHoot);
+    console.log("IMg url is...", imgUrl);
     if (
-      !hootInput
-        .val()
-        .trim()
-        .trim()
+      !newHoot
+        
     ) {
       return;
     }
+    alert("You've made it to  line 75");
     insertHoot({
-      text: hootInput.val().trim(),
-      image: hootImage.val().trim()
+      hoot: newHoot,
+      image: imgUrl,
+      userId: userId
     });
   }
-  function insertHoot(hooterData) {
-    $.post("/api/hoot", hooterData).then(getHooters);
+  function insertHoot(hootData) {
+    $.post("/api/hoot", hootData).then(getHoots);
   }
 
   // function renderHooterList(rows) {
@@ -138,6 +144,7 @@ $(document).ready(function() {
 
   // This function constructs a post's HTML
   function createNewRow(hoot) {
+    // var cardNewInput 
     // var cardOne = $("<div>");
     // cardOne.addClass("column is-half", id="blog")
     // var cardTwo = $("<div>");
@@ -163,7 +170,7 @@ $(document).ready(function() {
     // cardEleven.addClass("image is-4by3");
     // var cardTwelve = $("<img>");
     var cardThirteen = $("<div>");
-    cardThirteen.addClass("content");
+    cardThirteen.addClass("card");
     // var likesCount = $("<h2>");
     // cardFourteen.text("Likes");
     // var cardFifteen = $("<div>");
@@ -180,7 +187,7 @@ $(document).ready(function() {
     p.text("hoot.body");
     var formattedDate = new Date(hoot.createdAt);
     formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
-    cardEightteen.append(p);
+    cardThirteen.append(p);
     // var newPostCard = $("<div>");
     // newPostCard.addClass("card");
 

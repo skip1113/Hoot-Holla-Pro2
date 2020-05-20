@@ -59,10 +59,11 @@ app.get('/', checkAuthenticated, (req, res) => {
 });
 
 app.get('/api/currentuser', checkAuthenticated, (req, res) => {
-  console.log("user",req.user.name);
-  res.json({name:req.user.name,email:req.user.email});
+  console.log("user",req.user);
+  res.json({name:req.user.name,email:req.user.email,id:req.user.id});
   // res.send("hello world");
 });
+
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
   console.log('login get route');
@@ -123,7 +124,8 @@ function checkNotAuthenticated(req, res, next) {
   }
   next();
 }
-require("./routes/apiRoutes.js")(app);
-require("./routes/htmlRoutes.js")(app);
 app.use(express.static('public'));
+require("./routes/apiRoutes.js")(app);
+// require("./routes/htmlRoutes.js")(app);
+
 app.listen(process.env.PORT || 3000);
