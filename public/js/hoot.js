@@ -46,7 +46,7 @@ $(document).ready(function() {
       for (var i = 0; i < data.length; i++) {
         rowsToAdd.push(createNewRow(data[i]));
       }
-      console.log(rowsToAdd);
+      console.log("RowsTo add fucntion like 49", rowsToAdd);
       initializeRows(rowsToAdd);
       // nameInput.val("");
     });
@@ -133,13 +133,19 @@ $(document).ready(function() {
   }
 
   // InitializeRows handles appending all of our constructed post HTML inside hootContainer
-  function initializeRows() {
-    hootContainer.empty();
-    var postsToAdd = [];
+  function initializeRows(hoots) {
+    $("#blog").empty();
+    console.log("line 138 hoots without loop", hoots[0]);
+    // hootContainer.empty();
+    // var postsToAdd = [];
     for (var i = 0; i < hoots.length; i++) {
-      postsToAdd.push(createNewRow(hoots[i]));
+      // var hootArr = hoots[i];
+      // postsToAdd.push(createNewRow(hoots[i]));
+      console.log("this is your array for hoots.i", hoots[i])
+      
+      $("#blog").append(hoots[i]), console.log("Line 142 initRow, Blog sent");
     }
-    hootContainer.append(postsToAdd);
+    // hootContainer.append(postsToAdd);
   }
 
   // This function constructs a post's HTML
@@ -184,7 +190,7 @@ $(document).ready(function() {
     // var cardEightteen = $("<div>");
     // cardEightteen.addClass("content");
     var p = $("<p>");
-    p.text("hoot.body");
+    p.text(hoot.hoot);
     var formattedDate = new Date(hoot.createdAt);
     formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
     cardThirteen.append(p);
