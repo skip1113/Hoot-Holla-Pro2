@@ -66,6 +66,7 @@ $(document).ready(function() {
 
   function postHoot(event) {
     event.preventDefault();
+    
     var newHoot = $("#newHoot").val().trim();
     var imgUrl = $("#imgUrl").val().trim();
     console.log("The hoot is... ", newHoot);
@@ -76,12 +77,13 @@ $(document).ready(function() {
     ) {
       return;
     }
-    alert("You've made it to  line 75");
+    // alert("You've made it to  line 75");
     insertHoot({
       hoot: newHoot,
       image: imgUrl,
       userId: userId
     });
+    document.getElementById('newHoot').value = "";
   }
   function insertHoot(hootData) {
     $.post("/api/hoot", hootData).then(getHoots);
