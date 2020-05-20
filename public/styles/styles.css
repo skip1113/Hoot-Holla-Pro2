@@ -69,10 +69,13 @@ a.navbar-item img{
 }
 
 /* background animation */
-body {
+html {
   background: #232B2D;
 }
 
+#flow{
+  background:#232B2D ;
+}
 #flow span {
   background: #5e44f1fb;
   display: block;
