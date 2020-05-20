@@ -61,6 +61,9 @@ a:hover {
   color: whitesmoke;
 }
 /* animated background */
+#flow{
+  background:#232B2D ;
+}
 #flow span {
   background: #5e44f1;
   display: block;
