@@ -76,7 +76,7 @@ $(document).ready(function() {
     ) {
       return;
     }
-    alert("You've made it to  line 75");
+    // alert("You've made it to  line 75");
     insertHoot({
       hoot: newHoot,
       image: imgUrl,
