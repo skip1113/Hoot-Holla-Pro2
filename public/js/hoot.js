@@ -66,6 +66,7 @@ $(document).ready(function() {
 
   function postHoot(event) {
     event.preventDefault();
+    
     var newHoot = $("#newHoot").val().trim();
     var imgUrl = $("#imgUrl").val().trim();
     console.log("The hoot is... ", newHoot);
@@ -82,6 +83,7 @@ $(document).ready(function() {
       image: imgUrl,
       userId: userId
     });
+    document.getElementById('newHoot').value = "";
   }
   function insertHoot(hootData) {
     $.post("/api/hoot", hootData).then(getHoots);
