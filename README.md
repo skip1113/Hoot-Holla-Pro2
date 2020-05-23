@@ -1,4 +1,4 @@
-# Project2DBC
+# Project 2 - Hoot&Holla
 ## Link to deployed Github: https://github.com/Ragnorok303/Project2DBC
 ## Link to deployed Heroku: https://pure-peak-54891.herokuapp.com/login
 
@@ -12,6 +12,8 @@ The functions for this page is to be able to sign up and be able to log in and o
 ## Our Vision
 As developers we want to create a app that will allow users to be social while social distancing. 
 
+![](https://github.com/skip1113/Hoot-Holla-Pro2/blob/master/public/img/main-hoot.png)
+
 ## Features
 Sign Up with a new account
 Log In with the account you made
@@ -22,6 +24,7 @@ Click Like button to like a Hoot
 ## Technologies Used:
 * Javascript
 * Jquery
+* Bulma
 * Node.js
 * Mysql
 * ORM
@@ -29,5 +32,6 @@ Click Like button to like a Hoot
     * Express
     * Mysql
     * Express-handlebars
-    * Sequilize
+    * Sequeilize
     * PassPort 
+    * Bcrypt
