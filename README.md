@@ -20,7 +20,8 @@ Log In with the account you made
 Hoot - A status from you that you would like to share
 Holla - Instant messaging to a friend
 Click Like button to like a Hoot
-
+### Overcoming Problems
+We had problems with connecting to our database table trying to get and post our data. Solving this problem was going to each function calls and logging messages to see where the function stopped executing and seeing if words were misspelt or camelcased.
 ## Technologies Used:
 * Javascript
 * Jquery
