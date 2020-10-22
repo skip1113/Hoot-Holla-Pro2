@@ -53,10 +53,10 @@ a.navbar-item img{
   padding: 2rem 1.5rem;
 }
 
-#blog{
+/* #blog{
   overflow: scroll;
   height: 900px;
-}
+} */
 #blog::-webkit-scrollbar{
   display: none;
 }
